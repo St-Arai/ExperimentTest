@@ -271,18 +271,17 @@ public class ConfigurationSerialization {
 
 		if (delegate != null) {
 			if ((delegate.value() == null) || (delegate.value() == clazz)) {
-				delegate = null;
+				SerializableAs alias = clazz.getAnnotation(SerializableAs.class);
+
+				if ((alias != null) && (alias.value() != null)) {
+					return alias.value();
+				}
+
+				return clazz.getName();
 			} else {
 				return getAlias(delegate.value());
 			}
 		}
-
-		SerializableAs alias = clazz.getAnnotation(SerializableAs.class);
-
-		if ((alias != null) && (alias.value() != null)) {
-			return alias.value();
-		}
-
-		return clazz.getName();
+		return null;
 	}
 }
