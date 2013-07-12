@@ -2,12 +2,11 @@ package org.bukkit.event.block;
 
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
-import org.bukkit.event.Cancellable;
 import org.bukkit.event.HandlerList;
 
 /**
- * Called when a block is formed or spreads based on world conditions.
- * Use {@link BlockSpreadEvent} to catch blocks that actually spread and don't just "randomly" form.
+ * Called when a block is formed or spreads based on world conditions. Use {@link BlockSpreadEvent}
+ * to catch blocks that actually spread and don't just "randomly" form.
  * <p>
  * Examples:
  * <ul>
@@ -16,22 +15,22 @@ import org.bukkit.event.HandlerList;
  * </ul>
  * <p>
  * If a Block Form event is cancelled, the block will not be formed.
- *
+ * 
  * @see BlockSpreadEvent
  */
-public class BlockFormEvent extends BlockGrowEvent implements Cancellable {
-    private static final HandlerList handlers = new HandlerList();
+public class BlockFormEvent extends BlockGrowEvent {
+	private static final HandlerList handlers = new HandlerList();
 
-    public BlockFormEvent(final Block block, final BlockState newState) {
-        super(block, newState);
-    }
+	public BlockFormEvent(final Block block, final BlockState newState) {
+		super(block, newState);
+	}
 
-    @Override
-    public HandlerList getHandlers() {
-        return handlers;
-    }
+	@Override
+	public HandlerList getHandlers() {
+		return handlers;
+	}
 
-    public static HandlerList getHandlerList() {
-        return handlers;
-    }
+	public static HandlerList getHandlerList() {
+		return handlers;
+	}
 }

@@ -277,12 +277,10 @@ public class ConfigurationSerialization {
 			}
 		}
 
-		if (delegate == null) {
-			SerializableAs alias = clazz.getAnnotation(SerializableAs.class);
+		SerializableAs alias = clazz.getAnnotation(SerializableAs.class);
 
-			if ((alias != null) && (alias.value() != null)) {
-				return alias.value();
-			}
+		if ((alias != null) && (alias.value() != null)) {
+			return alias.value();
 		}
 
 		return clazz.getName();
