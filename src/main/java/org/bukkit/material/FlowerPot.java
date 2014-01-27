@@ -99,14 +99,13 @@ public class FlowerPot extends MaterialData {
 			} else {
 				setData((byte) 6);
 			}
+		} else if (mat == Material.LONG_GRASS) {
+			GrassSpecies species = ((LongGrass) materialData).getSpecies();
+
+			if (species == GrassSpecies.FERN_LIKE) {
+				setData((byte) 11);
+			}
 		}
-		// else if (mat == Material.LONG_GRASS) {
-		// GrassSpecies species = ((LongGrass) materialData).getSpecies();
-		//
-		// if (species == GrassSpecies.FERN_LIKE) {
-		// setData((byte) 11);
-		// }
-		// }
 	}
 
 	@Override
